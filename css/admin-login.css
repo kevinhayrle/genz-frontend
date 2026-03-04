@@ -18,25 +18,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at top, #ffffff, #e9e9e9);
+  background: radial-gradient(circle at top, #111111, #0d0d0d);
   font-family: 'sf';
 }
 
 .login-container {
   width: 100%;
   max-width: 420px;
-  background: #ffffff;
+  background: #181818;
   padding: 2.8rem 2.6rem;
   border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  border: 1px solid #2a2a2a;
   text-align: center;
 }
 
 .login-container h1 {
-  font-family:'Times New Roman';
+  font-family: 'Times New Roman';
   font-size: 30px;
   letter-spacing: 4px;
-  color: #111;
+  color: #ffffff;
   font-weight: lighter;
   margin-bottom: 0.4rem;
 }
@@ -46,7 +47,7 @@ body {
   font-family: 'Times New Roman';
   letter-spacing: 4px;
   margin-bottom: 30px;
-  color: #4169E1;
+  color: #e8291c;
 }
 
 .login-container input {
@@ -54,15 +55,21 @@ body {
   padding: 14px 16px;
   margin-bottom: 1rem;
   border-radius: 12px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #2a2a2a;
+  background: #111111;
+  color: #ffffff;
   font-size: 14px;
   outline: none;
   transition: 0.25s;
 }
 
+.login-container input::placeholder {
+  color: #5a5a5a;
+}
+
 .login-container input:focus {
-  border-color: black;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  border-color: #e8291c;
+  box-shadow: 0 0 0 2px rgba(232,41,28,0.15);
 }
 
 .login-container button {
@@ -71,7 +78,7 @@ body {
   margin-top: 0.8rem;
   border-radius: 999px;
   border: none;
-  background: #4169E1;
+  background: #e8291c;
   color: white;
   font-size: 14px;
   letter-spacing: 3px;
@@ -81,7 +88,8 @@ body {
 }
 
 .login-container button:hover {
-  background: black;
+  background: #ffffff;
+  color: #0d0d0d;
 }
 
 .login-container button:active {
@@ -91,13 +99,13 @@ body {
 .footer-text {
   margin-top: 2.2rem;
   font-size: 12px;
-  color: #aaa;
+  color: #5a5a5a;
   letter-spacing: 2px;
 }
 
 .error {
   margin-top: 0.8rem;
-  color: #c0392b;
+  color: #e8291c;
   font-size: 13px;
 }
 

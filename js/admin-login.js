@@ -5,7 +5,7 @@ document
   .addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const email = document.getElementById('email').value.trim();
+    const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
     const errorMsg = document.getElementById('error-msg');
 
@@ -16,14 +16,14 @@ document
       const res = await fetch(API.ADMIN_LOGIN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ username, password })
       });
 
       const data = await res.json();
 
       if (res.status !== 200 || !data.token) {
         errorMsg.textContent =
-          data.message || "Invalid email or password";
+          data.message || "Invalid username or password";
         return;
       }
 
