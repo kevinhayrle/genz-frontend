@@ -1,0 +1,231 @@
+/* ================= FONTS ================= */
+
+@font-face {
+  font-family: 'sf';
+  src: url('/fonts/sf.otf') format('opentype');
+}
+
+/* ================= PC ================= */
+
+body {
+  margin: 0;
+  background: #f7f7f7;
+  color: #111;
+  font-family: 'sf';
+}
+
+.header-spacer {
+  height: 80px;
+}
+.contact-wrapper {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-card {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 50px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.contact-box {
+  padding: 30px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-6px);
+}
+
+.contact-box i {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.contact-box h3 {
+  margin-bottom: 8px;
+}
+
+.contact-box a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.location-section-wrapper {
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+
+.store-heading {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.store-subtext {
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.location-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.location-card {
+  padding: 35px;
+  border-radius: 14px;
+  background: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.location-card h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.location-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.map-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.map-btn:hover {
+  background: #333;
+}
+
+.back-home-btn {
+  display: inline-block;
+  margin-top: 50px;
+  padding: 12px 28px;
+  border: 1px solid #000;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ================= PHONE ================= */
+
+@media (max-width: 768px) {
+
+  .contact-wrapper {
+    padding: 50px 16px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 35px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .contact-box {
+    padding: 22px;
+  }
+
+  .contact-box h3 {
+    font-size: 16px;
+  }
+
+  .contact-box a {
+    font-size: 14px;
+  }
+
+  .store-heading {
+    font-size: 20px;
+  }
+
+  .store-subtext {
+    font-size: 14px;
+    margin-bottom: 30px;
+    padding: 0 5px;
+  }
+
+  .location-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .location-card {
+    padding: 22px;
+  }
+
+  .location-card h2 {
+    font-size: 17px;
+  }
+
+  .location-card p {
+    font-size: 14px;
+  }
+
+  .map-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .back-home-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    margin-top: 40px;
+  }
+
+}

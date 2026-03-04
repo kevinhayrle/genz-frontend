@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin Dashboard | Anis Boutique</title>
+
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/admin-dashboard.css" />
+  <link rel="stylesheet" href="/css/preloader.css">
+
+</head>
+
+<body>
+
+  <!---------------------------------------------------->
+
+  <!-- PRELOADER -->
+
+  <div id="preloader">
+    <img src="/assets/logo.webp" alt="Anis Boutique" class="preloader-logo">
+  </div>
+
+  <!---------------------------------------------------->
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <h2>ADMIN</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+
+  <main class="main">
+    <h1 class="brand-title">ANIS BOUTIQUE</h1>
+
+  <!-- ADD / EDIT PRODUCT -->
+
+    <section class="card">
+      <h3>Add / Edit Product</h3>
+
+      <form id="productForm">
+
+  <!-- CATEGORY -->
+
+        <select id="category" required>
+          <option value="">Select Category</option>
+
+          <optgroup label="Other Materials">
+            <option value="Inskirts">Inskirts</option>
+            <option value="Aari Materials">Aari Materials</option>
+            <option value="Stitching Items">Stitching Items</option>
+            <option value="Laces">Laces</option>
+            <option value="Knots">Knots</option>
+            <option value="Others">Others</option>
+          </optgroup>
+        </select>
+
+  <!-- QUANTITY UNIT -->
+
+        <select id="quantity_unit" required>
+          <option value="">Select Quantity Unit</option>
+          <option value="Meters">Meters</option>
+          <option value="Grams">Grams</option>
+          <option value="Unit">Unit</option>
+        </select>
+
+  <!-- PRODUCT NAME -->
+
+        <input
+          id="name"
+          type="text"
+          placeholder="Product Name *"
+          required
+        />
+
+  <!-- DESCRIPTION -->
+
+        <input
+          id="description"
+          type="text"
+          placeholder="Description"
+        />
+
+  <!-- PRICE -->
+
+        <input
+          id="price"
+          type="number"
+          placeholder="Price *"
+          min="0"
+          required
+        />
+
+  <!-- DISCOUNTED PRICE -->
+
+        <input
+          id="discounted_price"
+          type="number"
+          placeholder="Discounted Price"
+          min="0"
+        />
+
+
+  <!-- MAIN IMAGE -->
+
+        <input
+          id="image_url"
+          type="text"
+          placeholder="Main Image URL *"
+          required
+        />
+
+  <!-- COLORS -->
+
+        <div class="form-field">
+        <input
+          id="colors"
+          type="text"
+          placeholder="Colors (comma separated)"
+        />
+        <small class="color-hint">
+        Available Colors: White, Black, Red, Blue, Green, Yellow, Pink, Purple, Brown, Grey
+        </small>
+        </div>
+
+  <!-- EXTRA IMAGES -->
+
+        <input
+          id="extraImages"
+          type="text"
+          placeholder="Extra Image URLs (comma separated)"
+        />
+
+        <button type="submit">Save Product</button>
+      </form>
+    </section>
+
+  <!-- ALL PRODUCTS -->
+
+    <div class="container">
+      <h2>All Products</h2>
+      <div id="productList"></div>
+    </div>
+
+  <!-- COUPON MANAGEMENT -->
+
+    <div class="container">
+      <h2>Coupon Management</h2>
+
+      <form id="couponForm">
+        <input
+          id="coupon_code"
+          type="text"
+          placeholder="Coupon Code"
+        />
+
+        <select id="discount_type">
+          <option value="percentage">Percentage</option>
+          <option value="fixed">Flat</option>
+        </select>
+
+        <input
+          id="discount_value"
+          type="number"
+          placeholder="Discount Value"
+          min="0"
+        />
+
+        <input
+          id="min_cart_value"
+          type="number"
+          placeholder="Minimum Cart Value"
+          min="0"
+        />
+
+        <input
+          id="max_discount"
+          type="number"
+          placeholder="Max Discount"
+          min="0"
+        />
+
+        <input
+          id="expiry_date"
+          type="date"
+        />
+
+        <button type="submit" class="btn">Add Coupon</button>
+      </form>
+    </div>
+
+  <!-- ALL COUPONS -->
+
+    <div class="container">
+      <h2>All Coupons</h2>
+      <div id="couponList"></div>
+    </div>
+
+  </main>
+
+  <!---------------------------------------------------->
+
+  <!-- SCRIPTS -->
+
+  <script src="/js/config.js"></script>
+  <script src="../js/admin-dashboard.js"></script>
+  <script src="/js/preloader.js"></script>
+  
+</body>
+</html>

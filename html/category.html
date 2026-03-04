@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/css/category.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/preloader.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+</head>
+
+<body>
+
+  <!---------------------------------------------------->
+
+  <!-- PRELOADER -->
+
+  <div id="preloader">
+    <img src="/assets/logo.webp" alt="Anis Boutique" class="preloader-logo">
+  </div>
+
+  <!-- HEADER -->
+
+  <div id="header-placeholder"></div>
+
+  <!---------------------------------------------------->
+
+  <!-- SEARCH BAR -->
+
+  <section class="search-wrapper">
+    <div class="search-inner">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search products"
+        autocomplete="off"
+      />
+
+      <!-- Camera icon (conditional via JS) -->
+      <a id="camIcon" href="lens.html" aria-label="Visual search">
+        <i class="fas fa-camera"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="category-section">
+    <h2 class="category-title" id="categoryTitle"></h2>
+
+    <div class="product-grid" id="productsGrid">
+      <!-- product cards injected by JS -->
+    </div>
+  </section>
+
+  <!---------------------------------------------------->
+
+  <!-- FOOTER -->
+
+  <div id="footer-placeholder"></div>
+
+  <!---------------------------------------------------->
+
+  <!-- SCRIPTS -->
+
+<script src="/js/config.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/footer.js"></script>
+<script src="/js/category.js"></script>
+<script src="/js/preloader.js"></script>
+
+</body>
+</html>

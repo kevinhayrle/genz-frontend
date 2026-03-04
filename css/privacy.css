@@ -1,0 +1,121 @@
+/* ================= FONTS ================= */
+
+@font-face {
+  font-family: 'sf';
+  src: url('/fonts/sf.otf') format('opentype');
+}
+
+/* ================= PC ================= */
+
+body {
+  margin: 0;
+  background: #f7f7f7;
+  color: #222;
+  font-family: 'sf';
+  line-height: 1.7;
+}
+
+.header-spacer {
+  height: 80px;
+}
+
+.page-wrapper {
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.policy-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 60px 50px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+h1 {
+  font-family: 'Didot', serif;
+  font-size: 42px;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+p,
+ul li {
+  font-size: 15px;
+  color: #333;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.divider {
+  width: 80px;
+  height: 1px;
+  background: #000;
+  opacity: 0.25;
+  margin: 50px auto;
+}
+
+.back-home {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 14px 36px;
+  border: 1px solid #000;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.back-home:hover {
+  background: #000;
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin-top: 60px;
+}
+
+/* ================= PHONE ================= */
+
+@media (max-width: 600px) {
+  .policy-card {
+    padding: 40px 22px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    margin-bottom: 36px;
+  }
+}

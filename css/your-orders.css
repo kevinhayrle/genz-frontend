@@ -1,0 +1,166 @@
+/* ================= FONTS ================= */
+
+@font-face {
+  font-family: 'sf';
+  src: url('/fonts/sf.otf') format('opentype');
+}
+
+/* ================= PC ================= */
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #f4f6f5, #ffffff);
+  font-family: 'sf';
+  color: #111;
+}
+
+.orders-container {
+  max-width: 820px;
+  margin: 90px auto;
+  padding: 50px 40px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.orders-container h1 {
+  font-family: 'Didot', serif;
+  font-size: 40px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.subtext {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+.subtext span {
+  display: block;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.search-box input {
+  padding: 14px 16px;
+  width: 260px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: #4169E1;
+}
+
+.search-box button {
+  padding: 14px 22px;
+  font-size: 15px;
+  background: #4169E1;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-box button:hover {
+  background: #4169E1;
+}
+
+#orders {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.order-card {
+  background: #fafafa;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.product-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.item-details {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.item-details strong {
+  font-size: 15px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.no-orders {
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.footer-note {
+  margin-top: 40px;
+  font-size: 13px;
+  color: #777;
+  text-align: center;
+}
+
+/* ================= PHONE ================= */
+
+@media (max-width: 600px) {
+  .orders-container {
+    margin: 60px 14px;
+    padding: 36px 22px;
+  }
+
+  .orders-container h1 {
+    font-size: 32px;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-img {
+    width: 100%;
+    height: auto;
+  }
+}

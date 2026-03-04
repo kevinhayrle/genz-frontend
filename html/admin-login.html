@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin Login | Anis Boutique</title>
+
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/css/admin-login.css" />
+  <link rel="stylesheet" href="/css/preloader.css">
+
+</head>
+
+<body>
+
+  <!---------------------------------------------------->
+
+  <!-- PRELOADER -->
+
+  <div id="preloader">
+    <img src="/assets/logo.webp" alt="Anis Boutique" class="preloader-logo">
+  </div>
+
+  <!---------------------------------------------------->
+
+  <!-- LOG IN -->
+
+  <div class="login-container">
+  <h1>ADMIN</h1>
+  <div class="subtitle">ANIS BOUTIQUE</div>
+
+  <form id="admin-login-form">
+    <input type="text" id="email" placeholder="Username" required />
+
+    <input type="password" id="password" placeholder="Password" required />
+
+    <button type="submit">LOGIN</button>
+    <div class="error" id="error-msg"></div>
+  </form>
+
+  <div class="footer-text">
+    AUTHORIZED PERSONNEL ONLY
+  </div>
+</div>
+
+  <!---------------------------------------------------->
+
+  <!-- SCRIPTS -->
+
+  <script src="../js/config.js"></script>
+  <script src="../js/admin-login.js"></script>
+  <script src="../js/preloader.js"></script>
+
+</body>
+</html>

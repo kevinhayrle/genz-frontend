@@ -1,0 +1,160 @@
+/* ================= FONTS ================= */
+
+@font-face {
+  font-family: 'sf';
+  src: url('/fonts/sf.otf') format('opentype');
+}
+
+/* ================= PC ================= */
+
+.search-page {
+  padding: 60px 6vw 100px;
+  font-family: 'sf';
+}
+
+.search-box {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto 60px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 16px 52px 16px 18px;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  border: 1px solid #8a8a8a;
+  border-radius: 30px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-box input::placeholder {
+  color: #8a8a8a;
+}
+
+.search-box i {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8a8a8a;
+  font-size: 15px;
+}
+
+.status-text {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  margin-bottom: 60px;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-section {
+  padding: 20px 0 80px;
+}
+
+.category-title {
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* ================= PRODUCT GRID ================= */
+
+.category-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.result-card {
+  background: whitesmoke;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.result-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 16px 18px 22px;
+  text-align: center;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+
+.product-prices {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.price-old {
+  font-size: 11px;
+  color: #9a9a9a;
+  text-decoration: line-through;
+}
+
+.price-new {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ================= PHONE ================= */
+
+@media (max-width: 768px) {
+
+  .search-page {
+    padding: 40px 6vw 80px;
+  }
+
+  .category-title {
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  text-align: center;
+  margin-top: -40px;
+  }
+
+  .category-products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}

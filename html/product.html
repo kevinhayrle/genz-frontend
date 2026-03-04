@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Dynamic Title -->
+  <title>Anis Boutique | Product</title>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/product.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/preloader.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+</head>
+
+<body>
+
+  <!---------------------------------------------------->
+
+  <!-- PRELOADER -->
+
+  <div id="preloader">
+    <img src="/assets/logo.webp" alt="Anis Boutique" class="preloader-logo">
+  </div>
+
+  <!-- HEADER -->
+
+  <div id="header-placeholder"></div>
+
+  <!---------------------------------------------------->
+
+
+  <!-- PRODUCT -->
+  <main class="product-wrapper">
+
+    <section class="product-layout">
+
+      <!-- LEFT : IMAGES -->
+        <div id="imageSection" class="product-images">
+        <div class="image-frame">
+          <img id="mainImage" class="main-image" alt="Product Image">
+        </div>
+
+        <div id="extraImages" class="thumbnail-row"></div>
+      </div>
+
+      <!-- RIGHT : DETAILS -->
+      <div class="product-details">
+
+        <h1 id="productName" class="product-title"></h1>
+
+        <div id="productPrice" class="product-price"></div>
+
+        <p id="productDescription" class="product-description"></p>
+
+                <!-- QUALITY -->
+        <div id="qualitySection" class="option-block">
+          <span class="option-label">Quality</span>
+          <div id="qualityOptions" class="quality-options"></div>
+        </div>
+
+        <!-- QUANTITY -->
+        <div class="option-block">
+          <span class="option-label">Quantity</span>
+          <div id="quantityControl"></div>
+        </div>
+
+        <!-- COLOR -->
+<div id="colorSection" class="option-block">
+
+  <div class="color-header">
+    <span class="color-title">AVAILABLE COLORS</span>
+<button id="lensBtn" type="button" class="lens-btn" style="display:none;">
+  <i class="fa-solid fa-camera"></i>
+</button>
+  </div>
+
+  <div id="colorPalette" class="color-palette"></div>
+
+</div>
+
+<!-- LENS -->
+<div id="cameraModal" class="camera-modal" style="display:none;">
+  <video id="video" autoplay></video>
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <div class="camera-controls">
+    <button id="captureBtn">Capture</button>
+    <button id="closeCamera">Close</button>
+  </div>
+
+  <div id="colorResult"></div>
+</div>
+
+        <!-- CTA -->
+        <button id="addToCartBtn" class="add-to-cart-btn">
+          Add to Cart
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!---------------------------------------------------->
+
+  <!-- FOOTER -->
+
+  <div id="footer-placeholder"></div>
+
+  <!---------------------------------------------------->
+
+  <!-- SCRIPTS -->
+
+  <script src="/js/config.js"></script>
+  <script src="/js/product.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/footer.js"></script>
+  <script src="/js/preloader.js"></script>
+
+</body>
+</html>

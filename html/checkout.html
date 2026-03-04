@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Checkout | Anis Boutique Chennai</title>
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/checkout.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/preloader.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+</head>
+
+<body>
+
+  <!---------------------------------------------------->
+
+  <!-- PRELOADER -->
+
+  <div id="preloader">
+    <img src="/assets/logo.webp" alt="Anis Boutique" class="preloader-logo">
+  </div>
+
+  <!-- HEADER -->
+
+  <div id="header-placeholder"></div>
+
+  <!---------------------------------------------------->
+
+<div class="checkout-container">
+  <h1>CHECKOUT</h1>
+
+  <form id="checkout-form">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="tel" id="phone" placeholder="Phone Number" required />
+    <textarea id="address" placeholder="Address" required></textarea>
+
+    <div id="cart-summary">
+      <h2>Order Summary</h2>
+      <ul id="cart-items"></ul>
+      <p class="total">
+        Total: ₹<span id="total-amount">0</span>
+      </p>
+    </div>
+
+    <button type="submit" id="pay-now">
+      PAY NOW
+    </button>
+  </form>
+</div>
+
+  <!---------------------------------------------------->
+
+  <!-- FOOTER -->
+
+  <div id="footer-placeholder"></div>
+
+  <!---------------------------------------------------->
+
+  <!-- SCRIPTS -->
+
+  <script src="/js/config.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="/js/checkout.js"></script>
+  <script src="/js/header.js"></script>
+  <script src="/js/footer.js"></script>
+  <script src="/js/preloader.js"></script>
+
+</body>
+</html>

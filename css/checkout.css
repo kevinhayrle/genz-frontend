@@ -1,0 +1,175 @@
+/* ================= FONTS ================= */
+
+@font-face {
+  font-family: 'sf';
+  src: url('/fonts/sf.otf') format('opentype');
+}
+
+/* ================= PC ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+
+body {
+  background: #f6f6f6;
+  font-family: 'sf';
+  color: #1a1a1a;
+}
+
+/* ================= CONTAINER ================= */
+
+.checkout-container {
+  max-width: 520px;
+  margin: 60px auto 100px;
+  padding: 34px 30px;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* ================= TITLE ================= */
+
+.checkout-container h1 {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin-bottom: 26px;
+}
+
+/* ================= FORM ================= */
+
+#checkout-form input,
+#checkout-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+  background: #fff;
+}
+
+#checkout-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+#checkout-form input::placeholder,
+#checkout-form textarea::placeholder {
+  color: #888;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+}
+
+#checkout-form input:focus,
+#checkout-form textarea:focus {
+  border-color: #4169E1;
+  box-shadow: 0 0 0 3px rgba(65,105,225,0.12);
+}
+
+/* ================= ORDER SUMMARY ================= */
+
+#cart-summary {
+  margin-top: 10px;
+  padding: 18px;
+  background: #f3f3f3;
+  border-radius: 14px;
+}
+
+#cart-summary h2 {
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+#cart-items {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+#cart-items li {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+#cart-items .color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  margin-bottom: 4px;
+}
+
+/* ================= TOTAL ================= */
+
+.total {
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* ================= PAY BUTTON ================= */
+
+#pay-now {
+  width: 100%;
+  margin-top: 26px;
+  padding: 16px;
+  border-radius: 999px;
+  border: none;
+  background: #4169E1;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* ================= PHONE ================= */
+
+@media (max-width: 600px) {
+
+  .checkout-container {
+    margin: 50px 14px 50px;
+    padding: 26px 20px;
+    border-radius: 18px;
+  }
+
+  .checkout-container h1 {
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+
+  #checkout-form input,
+  #checkout-form textarea {
+    padding: 13px 14px;
+    font-size: 13.5px;
+  }
+
+  #cart-summary {
+    padding: 16px;
+  }
+
+  #cart-summary h2 {
+    font-size: 13px;
+  }
+
+  #cart-items li {
+    font-size: 12.8px;
+  }
+
+  .total {
+    font-size: 14.5px;
+  }
+}

@@ -1,0 +1,132 @@
+/* ================= FONTS ================= */
+
+@font-face {
+  font-family: 'sf';
+  src: url('/fonts/sf.otf') format('opentype');
+}
+
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111;
+      text-align: center;
+      font-family: 'sf';
+    }
+
+    h2 {
+      margin: 26px 0 6px;
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-top: 50px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    button {
+      padding: 13px 30px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      border-radius: 999px;
+      border: none;
+      border: 1px solid #4169E1;
+      background: #4169E1;
+      color: #fff;
+    }
+  
+    button:hover:not(:disabled) {
+      background: #4169E1;
+      transform: translateY(-1px);
+    }
+ 
+    .camera-container {
+      display: flex;
+      justify-content: center;
+      margin: 22px auto;
+    }
+
+    .lens-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    video,
+    .lens-wrapper img {
+      width: 100%;
+      display: block;
+    }
+
+    #switchCameraIcon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 14px;
+    }
+
+ #captureBtn {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background: transparent;
+    }
+
+     #captureBtn::after {
+      content: "";
+      width: 26px;
+      height: 26px;
+      background: var(--purple);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #colorResult {
+      margin-top: 18px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    #productsContainer {
+      margin: 36px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+      max-width: 440px;
+      padding: 0 16px;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 10px;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      margin-bottom: 6px;
+    }
