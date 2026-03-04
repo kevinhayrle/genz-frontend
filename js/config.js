@@ -1,4 +1,4 @@
-window.BASE_API = "https://anisboutique-backend-v97w.onrender.com/api";
+window.BASE_API = "https://genz-backend-kccn.onrender.com/api";
 
 window.API_ENDPOINTS = {
   PRODUCTS: `${window.BASE_API}/products`,

@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Admin Dashboard | Anis Boutique</title>
+  <title>Admin Dashboard | Genz</title>
 
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/admin-dashboard.css" />
@@ -19,9 +19,9 @@
 
   <!-- PRELOADER -->
 
-  <div id="preloader">
-    <img src="/assets/logo.webp" alt="Anis Boutique" class="preloader-logo">
-  </div>
+<div id="preloader">
+  <h1 class="preloader-text">Genz</h1>
+</div>
 
   <!---------------------------------------------------->
 
@@ -37,7 +37,7 @@
   <!-- MAIN CONTENT -->
 
   <main class="main">
-    <h1 class="brand-title">ANIS BOUTIQUE</h1>
+    <h1 class="brand-title">Genz</h1>
 
   <!-- ADD / EDIT PRODUCT -->
 
@@ -51,24 +51,30 @@
         <select id="category" required>
           <option value="">Select Category</option>
 
+          <optgroup label="Materials">
+            <option value="shirts">Shirts</option>
+            <option value="trousers">Trousers</option>
+            <option value="tshirts">Tshirts</option>
+            <option value="jeans">Jeans</option>
+            <option value="cargos">cargos</option>
+            <option value="jackets">Jackets</option>
+          </optgroup>
+
           <optgroup label="Other Materials">
-            <option value="Inskirts">Inskirts</option>
-            <option value="Aari Materials">Aari Materials</option>
-            <option value="Stitching Items">Stitching Items</option>
-            <option value="Laces">Laces</option>
-            <option value="Knots">Knots</option>
-            <option value="Others">Others</option>
+            <option value="shoes">Shoes</option>
+            <option value="chains">Chains</option>
           </optgroup>
         </select>
 
-  <!-- QUANTITY UNIT -->
+  <!-- SIZES -->
 
-        <select id="quantity_unit" required>
-          <option value="">Select Quantity Unit</option>
-          <option value="Meters">Meters</option>
-          <option value="Grams">Grams</option>
-          <option value="Unit">Unit</option>
-        </select>
+        <div class="form-field">
+        <input
+          id="sizes"
+          type="text"
+          placeholder="Sizes (comma separated) e.g. S, M, L"
+         />
+        </div>
 
   <!-- PRODUCT NAME -->
 
@@ -115,19 +121,6 @@
           placeholder="Main Image URL *"
           required
         />
-
-  <!-- COLORS -->
-
-        <div class="form-field">
-        <input
-          id="colors"
-          type="text"
-          placeholder="Colors (comma separated)"
-        />
-        <small class="color-hint">
-        Available Colors: White, Black, Red, Blue, Green, Yellow, Pink, Purple, Brown, Grey
-        </small>
-        </div>
 
   <!-- EXTRA IMAGES -->
 
