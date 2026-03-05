@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
   prevBtn.addEventListener("click", () => { goTo(current - 1); resetAutoPlay(); });
   nextBtn.addEventListener("click", () => { goTo(current + 1); resetAutoPlay(); });
 
-  // Touch swipe support
+  // Touch swipe supp
   let touchStartX = 0;
 
   track.addEventListener("touchstart", e => {
