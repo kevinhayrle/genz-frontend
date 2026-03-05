@@ -210,3 +210,61 @@ document.addEventListener("DOMContentLoaded", () => {
   bindSearch(homeSearchMobile);
 
 });
+
+/* =========================================
+   MOBILE SLIDER
+========================================= */
+
+(function () {
+  const track = document.getElementById("mobileTrack");
+  const prevBtn = document.getElementById("mPrev");
+  const nextBtn = document.getElementById("mNext");
+
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const cards = track.querySelectorAll(".mobile-card");
+  const total = cards.length;
+  let current = 0;
+  let autoPlay;
+
+  const slogans = document.querySelectorAll(".mobile-slogan-item");
+
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    slogans.forEach((s, i) => {
+      s.classList.toggle("active", i === current);
+    });
+  }
+
+  function startAutoPlay() {
+    autoPlay = setInterval(() => goTo(current + 1), 3500);
+  }
+
+  function resetAutoPlay() {
+    clearInterval(autoPlay);
+    startAutoPlay();
+  }
+
+  prevBtn.addEventListener("click", () => { goTo(current - 1); resetAutoPlay(); });
+  nextBtn.addEventListener("click", () => { goTo(current + 1); resetAutoPlay(); });
+
+  // Touch swipe support
+  let touchStartX = 0;
+
+  track.addEventListener("touchstart", e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  track.addEventListener("touchend", e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? goTo(current + 1) : goTo(current - 1);
+      resetAutoPlay();
+    }
+  }, { passive: true });
+
+  goTo(0);
+  startAutoPlay();
+})();
