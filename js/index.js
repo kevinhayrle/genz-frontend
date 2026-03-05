@@ -1,109 +1,137 @@
 /* =========================================
-   MATERIAL DEFINITIONS
+   CATEGORY DEFINITIONS
 ========================================= */
 
-const MATERIAL_CATEGORIES = [
-  "Lining",
-  "Two by Two",
-  "Silk Cotton",
-  "Plain Net",
-  "Poplin",
-  "Suncrepe",
-  "Falls",
-  "Satin"
-];
+const MAIN_CATEGORIES = ["shirts","trousers","tshirts","jeans","cargos","jackets"];
+const OTHER_CATEGORIES = ["shoes","chains"];
 
-const MATERIAL_IMAGES = {
-  "Lining":      "/assets/shirts.webp",
-  "Two by Two":  "/assets/2by2.webp",
-  "Silk Cotton": "/assets/silkcotton.webp",
-  "Plain Net":   "/assets/plainnet.webp",
-  "Poplin":      "/assets/poplin.webp",
-  "Suncrepe":    "/assets/suncrepe.webp",
-  "Falls":       "/assets/falls.webp",
-  "Satin":       "/assets/satin.webp"
+const CATEGORY_IMAGES = {
+  shirts: "/assets/shirts.webp",
+  trousers: "/assets/trousers.webp",
+  tshirts: "/assets/tshirts.webp",
+  jeans: "/assets/jeans.webp",
+  cargos: "/assets/cargos.webp",
+  jackets: "/assets/jackets.webp",
+  shoes: "/assets/shoes.webp",
+  chains: "/assets/chains.webp"
 };
 
-const OTHER_MATERIAL_IMAGES = {
-  "Inskirts":        "/assets/inskirt.webp",
-  "Aari Materials":  "/assets/aari.webp",
-  "Stitching Items": "/assets/stitchingitems.webp",
-  "Laces":           "/assets/lace.webp",
-  "Knots":           "/assets/knot.webp",
-  "Others":          "/assets/other.webp"
+const CATEGORY_LABELS = {
+  shirts: "Shirts",
+  trousers: "Trousers",
+  tshirts: "T-Shirts",
+  jeans: "Jeans",
+  cargos: "Cargos",
+  jackets: "Jackets",
+  shoes: "Shoes",
+  chains: "Chains"
 };
+
+/* =========================================
+   PRODUCT CARD (NEW ARRIVALS)
+   → redirects to product.html
+========================================= */
+
+function buildProductCard(product) {
+
+  const card = document.createElement("a");
+
+  card.href = `/html/product.html?id=${product.id}`;
+  card.className = "material-card";
+
+  const image = product.image_url || "";
+  const name  = product.name || "Product";
+  const price = product.price || 0;
+  const disc  = product.discounted_price;
+
+  const priceHTML = disc
+    ? `<span class="card-price"><s>₹${price}</s> <span class="card-disc">₹${disc}</span></span>`
+    : `<span class="card-price">₹${price}</span>`;
+
+  card.innerHTML = `
+    <img src="${image}" alt="${name}" loading="lazy">
+    <div class="card-info">
+      <div class="material-label">${name}</div>
+      ${priceHTML}
+    </div>
+  `;
+
+  return card;
+}
+
+/* =========================================
+   CATEGORY CARD
+   → redirects to search.html
+========================================= */
+
+function buildCategoryCard(category, url) {
+
+  const card = document.createElement("a");
+  card.href = url;
+  card.className = "material-card category-card";
+
+  const image = CATEGORY_IMAGES[category] || "";
+  const label = CATEGORY_LABELS[category] || category;
+
+  card.innerHTML = `
+    <img src="${image}" alt="${label}" loading="lazy">
+    <div class="card-info">
+      <div class="material-label">${label}</div>
+    </div>
+  `;
+
+  return card;
+}
 
 /* =========================================
    LOAD CATEGORIES
 ========================================= */
 
 async function loadCategories() {
+
   try {
+
     const res = await fetch(API_ENDPOINTS.CATEGORIES);
     const categories = await res.json();
 
-    const materialsGrid  = document.getElementById("materialsGrid");
+    const materialsGrid = document.getElementById("materialsGrid");
     const otherMaterials = document.getElementById("otherMaterials");
 
-    materialsGrid.innerHTML  = "";
-    otherMaterials.innerHTML = "";
+    if (materialsGrid) materialsGrid.innerHTML = "";
+    if (otherMaterials) otherMaterials.innerHTML = "";
 
-    /* ================================
-       MATERIALS (FIXED ORDER)
-    ================================= */
+    /* MAIN CATEGORIES */
 
-    MATERIAL_CATEGORIES.forEach(category => {
-      if (categories.includes(category)) {
+MAIN_CATEGORIES.forEach(cat => {
 
-        const materialUrl =
-          `/html/product.html?material=${encodeURIComponent(category)}`;
+  if (!categories.includes(cat)) return;
 
-        const card = document.createElement("a");
-        card.href      = materialUrl;
-        card.className = "material-card";
+  const url  = `/html/search.html?category=${encodeURIComponent(cat)}`;
 
-        card.innerHTML = `
-          <img src="${MATERIAL_IMAGES[category]}" alt="${category}" loading="lazy">
-          <div class="material-label">${category}</div>
-        `;
+  const card = buildCategoryCard(cat, url);
 
-        materialsGrid.appendChild(card);
-      }
-    });
+  materialsGrid.appendChild(card);
 
-    /* ================================
-       OTHER MATERIALS (SORTED)
-       "Others" ALWAYS LAST
-    ================================= */
+});
+    /* ACCESSORIES */
 
-    const otherCategories = categories
-      .filter(cat => OTHER_MATERIAL_IMAGES[cat])
-      .sort((a, b) => {
-        if (a === "Others") return 1;
-        if (b === "Others") return -1;
-        return a.localeCompare(b);
-      });
+    OTHER_CATEGORIES.forEach(cat => {
 
-    otherCategories.forEach(category => {
+      if (!categories.includes(cat)) return;
 
-      const categoryUrl =
-        `/html/category.html?cat=${encodeURIComponent(category)}`;
-
-      const card = document.createElement("a");
-      card.href      = categoryUrl;
-      card.className = "material-card";
-
-      card.innerHTML = `
-        <img src="${OTHER_MATERIAL_IMAGES[category]}" alt="${category}" loading="lazy">
-        <div class="material-label">${category}</div>
-      `;
+const url = `/html/search.html?category=${encodeURIComponent(cat)}`;
+const card = buildCategoryCard(cat, url); // ✅
 
       otherMaterials.appendChild(card);
+
     });
 
-  } catch (error) {
-    console.error("Failed to load categories:", error);
+  } catch (err) {
+
+    console.error("Failed loading categories:", err);
+
   }
+
 }
 
 /* =========================================
@@ -111,45 +139,47 @@ async function loadCategories() {
 ========================================= */
 
 async function loadNewArrivals() {
+
   try {
-    const res      = await fetch(API_ENDPOINTS.PRODUCTS);
+
+    const res = await fetch(API_ENDPOINTS.PRODUCTS);
     const products = await res.json();
 
     const grid = document.getElementById("newArrivalsGrid");
+
     if (!grid) return;
 
     grid.innerHTML = "";
 
-    // Sort by latest createdAt, show top 8
     const sorted = [...products]
-      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-      .slice(0, 8);
+      .sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
+      .slice(0,8);
 
-    if (sorted.length === 0) {
-      grid.innerHTML = `<p style="color:var(--silver);text-align:center;grid-column:1/-1;">No products yet.</p>`;
+    if (!sorted.length) {
+
+      grid.innerHTML =
+        `<p style="color:var(--silver);text-align:center;grid-column:1/-1;padding:2rem;">
+          No products yet.
+        </p>`;
+
       return;
+
     }
 
     sorted.forEach(product => {
-      const card = document.createElement("a");
-      card.href = `/html/product-detail.html?id=${product.id}`;  // _id → id
-      card.className = "material-card";
 
-      const image = product.image_url || "";   // was product.images?.[0]
-const name  = product.name || "Product"; // this was correct
-
-      card.innerHTML = `
-        <img src="${image}" alt="${name}" loading="lazy">
-        <div class="material-label">${name}</div>
-        <div class="card-badge">NEW</div>
-      `;
+      const card = buildProductCard(product);
 
       grid.appendChild(card);
+
     });
 
-  } catch (error) {
-    console.error("Failed to load new arrivals:", error);
+  } catch (err) {
+
+    console.error("Failed loading new arrivals:", err);
+
   }
+
 }
 
 /* =========================================
@@ -161,77 +191,22 @@ document.addEventListener("DOMContentLoaded", () => {
   loadCategories();
   loadNewArrivals();
 
-  /* ================================
-     HOME SEARCH REDIRECT
-  ================================= */
+  /* HOME SEARCH */
 
-  const homeSearch       = document.getElementById("homeSearch");
+  const homeSearch = document.getElementById("homeSearch");
   const homeSearchMobile = document.getElementById("homeSearchMobile");
 
-  function bindSearch(el) {
-    if (!el) return;
-    el.addEventListener("mousedown", e => {
-      e.preventDefault();
+  function bindSearch(el){
+
+    if(!el) return;
+
+    el.addEventListener("click", () => {
       window.location.href = "/html/search.html";
     });
-    el.addEventListener("touchstart", e => {
-      e.preventDefault();
-      window.location.href = "/html/search.html";
-    });
+
   }
 
   bindSearch(homeSearch);
   bindSearch(homeSearchMobile);
-
-  /* ================================
-     MOBILE SLIDER
-  ================================= */
-
-  const mTrack   = document.getElementById('mobileTrack');
-  const mCards   = document.querySelectorAll('.mobile-card');
-  const mSlogans = document.querySelectorAll('.mobile-slogan-item');
-  const mPrevBtn = document.getElementById('mPrev');
-  const mNextBtn = document.getElementById('mNext');
-  let mCurrent   = 0;
-  const mTotal   = mCards.length;
-  const sTotal   = mSlogans.length;
-
-  function mGoTo(index) {
-    const prevSlogan = mCurrent % sTotal;
-    mCurrent = (index + mTotal) % mTotal;
-    mTrack.style.transform = `translateX(-${mCurrent * 100}%)`;
-    const nextSlogan = mCurrent % sTotal;
-    mSlogans[prevSlogan].classList.remove('active');
-    const item = mSlogans[nextSlogan];
-    item.classList.remove('active');
-    void item.offsetWidth;
-    item.classList.add('active');
-  }
-
-  if (mPrevBtn && mNextBtn && mTrack) {
-    mNextBtn.addEventListener('click', () => mGoTo(mCurrent + 1));
-    mPrevBtn.addEventListener('click', () => mGoTo(mCurrent - 1));
-    setInterval(() => mGoTo(mCurrent + 1), 5000);
-  }
-
-  /* ================================
-     DESKTOP SLOGANS
-  ================================= */
-
-  const dSlogans = document.querySelectorAll('.desktop-slogan-item');
-  let dCurrent   = 0;
-
-  function dCycle() {
-    dSlogans[dCurrent].classList.remove('active');
-    dCurrent = (dCurrent + 1) % dSlogans.length;
-    const item = dSlogans[dCurrent];
-    item.classList.remove('active');
-    void item.offsetWidth;
-    item.classList.add('active');
-  }
-
-  if (dSlogans.length) {
-    setInterval(dCycle, 5000);
-  }
 
 });

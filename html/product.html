@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Dynamic Title -->
-  <title>Anis Boutique | Product</title>
+  <title>Genz | Product</title>
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/product.css">
   <link rel="stylesheet" href="/css/header.css">
@@ -22,9 +22,9 @@
 
   <!-- PRELOADER -->
 
-  <div id="preloader">
-    <img src="/assets/logo.webp" alt="Anis Boutique" class="preloader-logo">
-  </div>
+<div id="preloader">
+  <h1 class="preloader-text">Genz</h1>
+</div>
 
   <!-- HEADER -->
 
@@ -32,87 +32,69 @@
 
   <!---------------------------------------------------->
 
-
-  <!-- PRODUCT -->
-  <main class="product-wrapper">
-
-    <section class="product-layout">
-
-      <!-- LEFT : IMAGES -->
-        <div id="imageSection" class="product-images">
-        <div class="image-frame">
-          <img id="mainImage" class="main-image" alt="Product Image">
-        </div>
-
-        <div id="extraImages" class="thumbnail-row"></div>
-      </div>
-
-      <!-- RIGHT : DETAILS -->
-      <div class="product-details">
-
-        <h1 id="productName" class="product-title"></h1>
-
-        <div id="productPrice" class="product-price"></div>
-
-        <p id="productDescription" class="product-description"></p>
-
-                <!-- QUALITY -->
-        <div id="qualitySection" class="option-block">
-          <span class="option-label">Quality</span>
-          <div id="qualityOptions" class="quality-options"></div>
-        </div>
-
-        <!-- QUANTITY -->
-        <div class="option-block">
-          <span class="option-label">Quantity</span>
-          <div id="quantityControl"></div>
-        </div>
-
-        <!-- COLOR -->
-<div id="colorSection" class="option-block">
-
-  <div class="color-header">
-    <span class="color-title">AVAILABLE COLORS</span>
-<button id="lensBtn" type="button" class="lens-btn" style="display:none;">
-  <i class="fa-solid fa-camera"></i>
-</button>
+ <main class="product-detail-container">
+  <div class="left-column">
+    <img id="product-image" class="main-product-image" />
+    <div id="extra-images" class="extra-images"></div>
   </div>
+<div class="right-column">
 
-  <div id="colorPalette" class="color-palette"></div>
+  <h1 id="product-name"></h1>
+
+  <p id="product-price" class="product-detail-price"></p>
+
+  <div class="size-section">
+  <p class="size-title">Select Size</p>
+
+  <div id="size-options" class="size-options"></div>
+
+  <p id="size-error" class="size-error">
+    Please select a size to continue
+  </p>
+</div>
+
+  <button class="add-to-cart">Add to Cart</button>
+
+  <!-- Concierge note -->
+<p class="concierge-note">
+  Our Digital Concierge is available if you have any questions about this product.
+  <a href="/html/contact.html">Contact us</a>
+</p>
+
+  <!-- Description -->
+<div class="product-description">
+  <input type="checkbox" id="read-more-toggle">
+  <div class="text-mask">
+    <p class="product-text" id="product-description"></p>
+  </div>
+  <label for="read-more-toggle" class="read-more">Read More</label>
 
 </div>
 
-<!-- LENS -->
-<div id="cameraModal" class="camera-modal" style="display:none;">
-  <video id="video" autoplay></video>
-  <canvas id="canvas" style="display:none;"></canvas>
+  <!-- Accordions -->
 
-  <div class="camera-controls">
-    <button id="captureBtn">Capture</button>
-    <button id="closeCamera">Close</button>
+    <details>
+      <summary>Delivery</summary>
+      <p>Complimentary delivery.</p>
+    </details>
+
+    <details>
+      <summary>Gifting</summary>
+      <p>Signature Mark Daniel packaging available upon request.</p>
+    </details>
   </div>
 
-  <div id="colorResult"></div>
 </div>
 
-        <!-- CTA -->
-        <button id="addToCartBtn" class="add-to-cart-btn">
-          Add to Cart
-        </button>
+</main>
 
-      </div>
+<!---------------------------------------------------->
 
-    </section>
-
-  </main>
-
-  <!---------------------------------------------------->
-
-  <!-- FOOTER -->
+<!-- FOOTER -->
 
   <div id="footer-placeholder"></div>
 
-  <!---------------------------------------------------->
+<!---------------------------------------------------->
 
   <!-- SCRIPTS -->
 

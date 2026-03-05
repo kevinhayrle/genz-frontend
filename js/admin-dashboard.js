@@ -9,10 +9,9 @@ const couponList = document.getElementById("couponList");
 const nameInput = document.getElementById("name");
 const descriptionInput = document.getElementById("description");
 const categoryInput = document.getElementById("category");
-const unitInput = document.getElementById("quantity_unit");
+const sizesInput = document.getElementById("sizes");
 const priceInput = document.getElementById("price");
 const discountedPriceInput = document.getElementById("discounted_price");
-const colorsInput = document.getElementById("colors");
 const imageInput = document.getElementById("image_url");
 const extraImagesInput = document.getElementById("extraImages");
 
@@ -82,10 +81,9 @@ async function editProduct(id) {
     nameInput.value = p.name ?? "";
     descriptionInput.value = p.description ?? "";
     categoryInput.value = p.category ?? "";
-    unitInput.value = p.quantity_unit ?? "";
+sizesInput.value = p.sizes ?? "";
     priceInput.value = p.price ?? "";
     discountedPriceInput.value = p.discounted_price ?? "";
-    colorsInput.value = Array.isArray(p.colors) ? p.colors.join(", ") : "";
     imageInput.value = p.image_url ?? "";
     extraImagesInput.value = Array.isArray(p.extra_images)
       ? p.extra_images.join(", ")
@@ -106,13 +104,10 @@ productForm.addEventListener("submit", async e => {
     name: nameInput.value.trim(),
     description: descriptionInput.value || null,
     category: categoryInput.value,
-    quantity_unit: unitInput.value,
+sizes: sizesInput.value,
     price: Number(priceInput.value),
     discounted_price: discountedPriceInput.value || null,
     image_url: imageInput.value.trim(),
-    colors: colorsInput.value
-      ? colorsInput.value.split(",").map(c => c.trim().toLowerCase())
-      : [],
     extra_images: extraImagesInput.value
       ? extraImagesInput.value.split(",").map(i => i.trim())
       : []
@@ -124,7 +119,7 @@ productForm.addEventListener("submit", async e => {
     payload.price < 0 ||
     !payload.image_url ||
     !payload.category ||
-    !payload.quantity_unit
+ !payload.sizes
   ) {
     alert("Please fill all required fields.");
     return;
